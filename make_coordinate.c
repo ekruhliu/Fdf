@@ -17,14 +17,14 @@ char	**make_coordinate(char *argv)
 	int		len;
 	int		fd;
 	char	*line;
-	char	**mas;
+	char	**coordinate;
 	int		i;
 
 	i = 0;
 	line = read_file(argv);
-	mas = ft_strsplit(line, ' ');
+	coordinate = ft_strsplit(line, ' ');
 	while (mas[i])
 		i++;
 	free(line);
-	return (mas);
+	return (coordinate);
 }

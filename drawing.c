@@ -20,7 +20,7 @@ void	draw_lines_x(t_matrix *matrix, int i)
 		SEC_X1 = matrix->coord[i + 1].new_x;
 		SEC_Y0 = matrix->coord[i].new_y;
 		SEC_Y1 = matrix->coord[i + 1].new_y;
-		pixel_line(matrix, i);
+		line_algh(matrix, i);
 	}
 }
 
@@ -32,7 +32,7 @@ void	draw_lines_y(t_matrix *matrix, int i)
 		SEC_X1 = matrix->coord[i + (int)LEN_X].new_x;
 		SEC_Y0 = matrix->coord[i].new_y;
 		SEC_Y1 = matrix->coord[i + (int)LEN_X].new_y;
-		pixel_line(matrix, i);
+		line_algh(matrix, i);
 	}
 }
 

@@ -35,7 +35,7 @@ void	find_coord(t_matrix *matrix, char **coordinate, double mult)
 		while ((ft_isdigit(coordinate[i][j])) == 1)
 			j++;
 		if (coordinate[i][j] == ',')
-			filling_color(i, matrix, &coordinate[i][++j]);
+			find_and_save_color(i, matrix, &coordinate[i][++j]);
 		i++;
 		x++;
 	}

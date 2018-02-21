@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fill_line.c                                     :+:      :+:    :+:   */
+/*   create_lines.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekruhliu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "head.h"
 
-void		ft_fill_line(t_matrix *matrix, int i)
+void		create_lines(t_matrix *matrix, int i)
 {
 	int		x;
 

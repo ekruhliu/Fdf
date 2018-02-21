@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   filling_color.c                                    :+:      :+:    :+:   */
+/*   find_and_save_color.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekruhliu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "head.h"
 
-void		filling_color(int i, t_matrix *matrix, char *coordinate)
+void		find_and_save_color(int i, t_matrix *matrix, char *coordinate)
 {
 	int		j;
 	int		color;
@@ -23,8 +23,6 @@ void		filling_color(int i, t_matrix *matrix, char *coordinate)
 	j = 0;
 	if (coordinate[j] == '0' && coordinate[j + 1] == 'x')
 		j = j + 2;
-	// if (j == 0)
-	// 	return ;
 	color = ft_atoi_hex(&coordinate[j]);
 	red = (color >> 16);
 	green = (color >> 8) - (red << 8);

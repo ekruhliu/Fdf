@@ -1,38 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi_hex.c                                      :+:      :+:    :+:   */
+/*   magik.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekruhliu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/16 01:10:49 by ekruhliu          #+#    #+#             */
-/*   Updated: 2018/02/16 01:10:50 by ekruhliu         ###   ########.fr       */
+/*   Created: 2018/02/21 18:54:01 by ekruhliu          #+#    #+#             */
+/*   Updated: 2018/02/21 18:54:02 by ekruhliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "head.h"
 
-int				ft_atoi_hex(char *coordinate)
+void	magik(t_matrix *matrix)
 {
-	int		i;
-	int		result;
+	int i;
 
-	res = 0;
 	i = 0;
-	while (coordinate[i])
+	while (i < SIZE_MAP)
 	{
-		if (coordinate[i] >= 'a' && coordinate[i] <= 'f')
-			coordinate[i] = coordinate[i] - 32;
+		projection(matrix, i);
 		i++;
 	}
-	i = 0;
-	while (coordinate[i])
-	{
-		if (coordinate[i] >= '0' && coordinate[i] <= '9')
-			res = res * 16 + (coordinate[i] - 48);
-		else if (coordinate[i] >= 'A' && coordinate[i] <= 'F')
-			res = res * 16 + (coordinate[i] - 55);
-		i++;
-	}
-	return (result);
+	create_image(matrix);
+	drawing(matrix);
+	mlx_put_image_to_window(matrix->mlx, matrix->win, matrix->img->image, 0, 0);
+	free(matrix->img);
 }

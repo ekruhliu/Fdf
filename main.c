@@ -12,22 +12,6 @@
 
 #include "head.h"
 
-void	op(t_matrix *matrix)
-{
-	int i;
-
-	i = 0;
-	while (i < SIZE_MAP)
-	{
-		projection(matrix, i);
-		i++;
-	}
-	create_image(matrix);
-	drawing(matrix);
-	mlx_put_image_to_window(matrix->mlx, matrix->win, matrix->img->image, 0, 0);
-	free(matrix->img);
-}
-
 int		main(int argc, char **argv)
 {
 	t_matrix	*matrix;
@@ -45,7 +29,7 @@ int		main(int argc, char **argv)
 		mult = (VISOTA - 350) / ((LEN_X > LEN_Y) ? LEN_X : LEN_Y);
 		color_and_coord(matrix, coordinate, mult);
 		open_window(matrix);
-		op(matrix);
+		magik(matrix);
 		mlx_hook(matrix->win, 2, 5, klavochka, matrix);
 		mlx_hook(matrix->win, 17, 1L << 17, exit_x, 0);
 		mlx_loop(matrix->mlx);
