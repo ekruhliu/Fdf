@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "head.h"
+#include "../head.h"
 
 void	draw_lines_x(t_matrix *matrix, int i)
 {

@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   count_lines.c                                      :+:      :+:    :+:   */
+/*   find_and_save_color.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekruhliu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/16 01:12:04 by ekruhliu          #+#    #+#             */
-/*   Updated: 2018/02/16 01:12:04 by ekruhliu         ###   ########.fr       */
+/*   Created: 2018/02/16 01:11:02 by ekruhliu          #+#    #+#             */
+/*   Updated: 2018/02/16 01:11:03 by ekruhliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "head.h"
+#include "../head.h"
 
-void	count_lines(char *argv, t_matrix *matrix)
+void		find_and_save_color(int i, t_matrix *matrix, char *coordinate)
 {
-	int fd;
-	int lines;
-	int check;
+	int		j;
+	int		color;
+	int		red;
+	int		green;
+	int		blue;
 
-	lines = 0;
-	fd = open(argv, O_RDONLY);
-	while ((check = get_next_line(fd, &argv)) > 0)
-	{
-		lines++;
-		free(argv);
-	}
-	free(argv);
-	close(fd);
-	LEN_Y = (double)lines;
+	j = 0;
+	if (coordinate[j] == '0' && coordinate[j + 1] == 'x')
+		j = j + 2;
+	color = ft_atoi_hex(&coordinate[j]);
+	red = (color >> 16);
+	green = (color >> 8) - (red << 8);
+	blue = (color) - (red << 16) - (green << 8);
+	RED = red;
+	GREEN = green;
+	BLUE = blue;
 }

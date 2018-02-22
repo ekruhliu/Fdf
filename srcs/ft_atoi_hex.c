@@ -10,14 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "head.h"
+#include "../head.h"
 
 int				ft_atoi_hex(char *coordinate)
 {
 	int		i;
 	int		result;
 
-	res = 0;
+	result = 0;
 	i = 0;
 	while (coordinate[i])
 	{
@@ -29,9 +29,9 @@ int				ft_atoi_hex(char *coordinate)
 	while (coordinate[i])
 	{
 		if (coordinate[i] >= '0' && coordinate[i] <= '9')
-			res = res * 16 + (coordinate[i] - 48);
+			result = result * 16 + (coordinate[i] - 48);
 		else if (coordinate[i] >= 'A' && coordinate[i] <= 'F')
-			res = res * 16 + (coordinate[i] - 55);
+			result = result * 16 + (coordinate[i] - 55);
 		i++;
 	}
 	return (result);

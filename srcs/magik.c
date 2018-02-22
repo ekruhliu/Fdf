@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "head.h"
+#include "../head.h"
 
 void	magik(t_matrix *matrix)
 {
@@ -25,5 +25,6 @@ void	magik(t_matrix *matrix)
 	create_image(matrix);
 	drawing(matrix);
 	mlx_put_image_to_window(matrix->mlx, matrix->win, matrix->img->image, 0, 0);
-	free(matrix->img);
+	(matrix->help = 0 ? help(matrix) : matrix->help = 0);
+	mlx_destroy_image(matrix->mlx, matrix->img->image);
 }

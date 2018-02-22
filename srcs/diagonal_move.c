@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "head.h"
+#include "../head.h"
 
 void	upper_left_corner(t_matrix *matrix)
 {
@@ -22,7 +22,7 @@ void	upper_left_corner(t_matrix *matrix)
 		X = X - 10;
 		i++;
 	}
-	op(matrix);
+	magik(matrix);
 }
 
 void	upper_right_corner(t_matrix *matrix)
@@ -35,7 +35,7 @@ void	upper_right_corner(t_matrix *matrix)
 		Y = Y - 10;
 		i++;
 	}
-	op(matrix);
+	magik(matrix);
 }
 
 void	lower_left_corner(t_matrix *matrix)
@@ -48,7 +48,7 @@ void	lower_left_corner(t_matrix *matrix)
 		X = X + 10;
 		i++;
 	}
-	op(matrix);
+	magik(matrix);
 }
 
 void	lower_right_corner(t_matrix *matrix)
@@ -61,5 +61,5 @@ void	lower_right_corner(t_matrix *matrix)
 		Y = Y + 10;
 		i++;
 	}
-	op(matrix);
+	magik(matrix);
 }

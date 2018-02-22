@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   find_and_save_color.c                              :+:      :+:    :+:   */
+/*   make_coordinate.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekruhliu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/16 01:11:02 by ekruhliu          #+#    #+#             */
-/*   Updated: 2018/02/16 01:11:03 by ekruhliu         ###   ########.fr       */
+/*   Created: 2018/02/16 01:11:39 by ekruhliu          #+#    #+#             */
+/*   Updated: 2018/02/16 01:11:40 by ekruhliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "head.h"
+#include "../head.h"
 
-void		find_and_save_color(int i, t_matrix *matrix, char *coordinate)
+char	**make_coordinate(char *argv)
 {
-	int		j;
-	int		color;
-	int		red;
-	int		green;
-	int		blue;
+	char	*line;
+	char	**coordinate;
+	int		i;
 
-	j = 0;
-	if (coordinate[j] == '0' && coordinate[j + 1] == 'x')
-		j = j + 2;
-	color = ft_atoi_hex(&coordinate[j]);
-	red = (color >> 16);
-	green = (color >> 8) - (red << 8);
-	blue = (color) - (red << 16) - (green << 8);
-	RED = red;
-	GREEN = green;
-	BLUE = blue;
+	i = 0;
+	line = read_file(argv);
+	coordinate = ft_strsplit(line, ' ');
+	while (coordinate[i])
+		i++;
+	free(line);
+	return (coordinate);
 }

@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   make_coordinate.c                                  :+:      :+:    :+:   */
+/*   count_lines.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekruhliu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/16 01:11:39 by ekruhliu          #+#    #+#             */
-/*   Updated: 2018/02/16 01:11:40 by ekruhliu         ###   ########.fr       */
+/*   Created: 2018/02/16 01:12:04 by ekruhliu          #+#    #+#             */
+/*   Updated: 2018/02/16 01:12:04 by ekruhliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "head.h"
+#include "../head.h"
 
-char	**make_coordinate(char *argv)
+void	count_lines(char *argv, t_matrix *matrix)
 {
-	int		len;
-	int		fd;
-	char	*line;
-	char	**coordinate;
-	int		i;
+	int fd;
+	int lines;
+	int check;
 
-	i = 0;
-	line = read_file(argv);
-	coordinate = ft_strsplit(line, ' ');
-	while (mas[i])
-		i++;
-	free(line);
-	return (coordinate);
+	lines = 0;
+	fd = open(argv, O_RDONLY);
+	while ((check = get_next_line(fd, &argv)) > 0)
+	{
+		lines++;
+		free(argv);
+	}
+	free(argv);
+	close(fd);
+	LEN_Y = (double)lines;
 }

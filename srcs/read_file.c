@@ -1,35 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   count_chars.c                                      :+:      :+:    :+:   */
+/*   read_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekruhliu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/16 01:12:18 by ekruhliu          #+#    #+#             */
-/*   Updated: 2018/02/16 01:12:19 by ekruhliu         ###   ########.fr       */
+/*   Created: 2018/02/16 01:11:10 by ekruhliu          #+#    #+#             */
+/*   Updated: 2018/02/16 01:11:11 by ekruhliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "head.h"
+#include "../head.h"
 
-void	count_chars(char *argv, t_matrix *matrix)
+char		*read_file(char *argv)
 {
-	int		chars;
-	int		check;
-	char	**tab;
+	char	**mas;
+	char	*res;
+	char	*tmp;
+	int		read_res;
 	int		fd;
 
-	chars = 0;
 	fd = open(argv, O_RDONLY);
-	get_next_line(fd, &argv);
-	tab = ft_strsplit(argv, ' ');
-	while (tab[chars])
-		chars++;
-	while ((check = get_next_line(fd, &argv)) > 0)
+	res = ft_strdup("\0");
+	while ((read_res = get_next_line(fd, &argv)) > 0)
+	{
+		mas = ft_strsplit(argv, ' ');
+		tmp = ft_strdup(res);
+		free(res);
+		res = ft_strjoin(tmp, " ");
+		free(tmp);
+		tmp = ft_strdup(res);
+		free(res);
+		res = ft_strjoin(tmp, argv);
 		free(argv);
-	free(tab);
-	free(argv);
+	}
 	close(fd);
-	LEN_X = (double)chars;
-	SIZE_MAP = (int)LEN_Y * (int)LEN_X;
+	return (res);
 }

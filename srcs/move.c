@@ -1,43 +1,69 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zoom.c                                             :+:      :+:    :+:   */
+/*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekruhliu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/21 17:48:10 by ekruhliu          #+#    #+#             */
-/*   Updated: 2018/02/21 17:48:11 by ekruhliu         ###   ########.fr       */
+/*   Created: 2018/02/21 18:14:47 by ekruhliu          #+#    #+#             */
+/*   Updated: 2018/02/21 18:14:47 by ekruhliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "head.h"
+#include "../head.h"
 
-void	zoom_plus(t_matrix *matrix)
+void	up(t_matrix *matrix)
 {
 	int i;
 
 	i = 0;
 	while (i < SIZE_MAP)
 	{
-		Z = Z * 1.1;
-		X = X * 1.1;
-		Y = Y * 1.1;
+		X = X - 10;
+		Y = Y - 10;
 		i++;
 	}
-	op(matrix);
+	magik(matrix);
 }
 
-void	zoom_minus(t_matrix *matrix)
+void	down(t_matrix *matrix)
 {
 	int i;
 
 	i = 0;
 	while (i < SIZE_MAP)
 	{
-		Z = Z * 0.9;
-		X = X * 0.9;
-		Y = Y * 0.9;
+		X = X + 10;
+		Y = Y + 10;
 		i++;
 	}
-	op(matrix);
+	magik(matrix);
+}
+
+void	left(t_matrix *matrix)
+{
+	int i;
+
+	i = 0;
+	while (i < SIZE_MAP)
+	{
+		X = X - 10;
+		Y = Y + 10;
+		i++;
+	}
+	magik(matrix);
+}
+
+void	right(t_matrix *matrix)
+{
+	int i;
+
+	i = 0;
+	while (i < SIZE_MAP)
+	{
+		X = X + 10;
+		Y = Y - 10;
+		i++;
+	}
+	magik(matrix);
 }

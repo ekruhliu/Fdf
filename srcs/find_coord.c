@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "head.h"
+#include "../head.h"
 
 void	find_coord(t_matrix *matrix, char **coordinate, double mult)
 {
