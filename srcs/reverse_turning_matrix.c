@@ -21,8 +21,8 @@ void	turning_x_rev(t_matrix *matrix)
 	while (i < SIZE_MAP)
 	{
 		y = Y;
-		Y = Y * cos(10 * (3.14 / 180)) - Z * sin(10 * (3.14 / 180));
-		Z = y * sin(10 * (3.14 / 180)) + Z * cos(10 * (3.14 / 180));
+		Y = Y * cos(5 * (3.14 / 180)) - Z * sin(5 * (3.14 / 180));
+		Z = y * sin(5 * (3.14 / 180)) + Z * cos(5 * (3.14 / 180));
 		i++;
 	}
 	magik(matrix);
@@ -37,8 +37,8 @@ void	turning_y_rev(t_matrix *matrix)
 	while (i < SIZE_MAP)
 	{
 		x = X;
-		X = X * cos(10 * (3.14 / 180)) - Z * sin(10 * (3.14 / 180));
-		Z = x * sin(10 * (3.14 / 180)) + Z * cos(10 * (3.14 / 180));
+		X = X * cos(5 * (3.14 / 180)) - Z * sin(5 * (3.14 / 180));
+		Z = x * sin(5 * (3.14 / 180)) + Z * cos(5 * (3.14 / 180));
 		i++;
 	}
 	magik(matrix);
@@ -55,8 +55,8 @@ void	turning_z_rev(t_matrix *matrix)
 	{
 		x = X;
 		y = Y;
-		X = X * cos(10 * (3.14 / 180)) + Y * sin(10 * (3.14 / 180));
-		Y = -x * sin(10 * (3.14 / 180)) + y * cos(10 * (3.14 / 180));
+		X = X * cos(5 * (3.14 / 180)) + Y * sin(5 * (3.14 / 180));
+		Y = -x * sin(5 * (3.14 / 180)) + y * cos(5 * (3.14 / 180));
 		i++;
 	}
 	magik(matrix);

@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   magik.c                                            :+:      :+:    :+:   */
+/*   animation.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekruhliu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/21 18:54:01 by ekruhliu          #+#    #+#             */
-/*   Updated: 2018/02/21 18:54:02 by ekruhliu         ###   ########.fr       */
+/*   Created: 2018/02/24 20:17:46 by ekruhliu          #+#    #+#             */
+/*   Updated: 2018/02/24 20:17:46 by ekruhliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../head.h"
 
-void	magik(t_matrix *matrix)
+void	animation(t_matrix *matrix)
 {
-	int i;
-
-	i = 0;
-	while (i < SIZE_MAP)
+	if (matrix->animation == 0)
 	{
-		projection(matrix, i);
-		i++;
+		while (matrix->animation == 0)
+			turning_z(matrix);
 	}
-	create_image(matrix);
-	drawing(matrix);
-	mlx_put_image_to_window(matrix->mlx, matrix->win, matrix->img->image, 0, 0);
-	//animation(matrix);
-	help(matrix);
-	free(matrix->img);
 }

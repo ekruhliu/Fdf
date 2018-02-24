@@ -12,7 +12,7 @@
 
 #include "../head.h"
 
-int	klavochka(int key, t_matrix *matrix)
+static void		part_one(int key, t_matrix *matrix)
 {
 	if (key == 53)
 		exit(1);
@@ -24,6 +24,15 @@ int	klavochka(int key, t_matrix *matrix)
 		(key == 126 || key == 13 ? up(matrix) : down(matrix));
 	if ((key == 123 || key == 0) || (key == 124 || key == 2))
 		(key == 123 || key == 0 ? left(matrix) : right(matrix));
+	if (key == 1)
+	{
+		matrix->animation = (matrix->animation == 0 ? 1 : 0);
+		magik(matrix);
+	}
+}
+
+static	void	part_two(int key, t_matrix *matrix)
+{
 	if (key == 12 || key == 8)
 		(key == 12 ? upper_left_corner(matrix) : lower_left_corner(matrix));
 	if (key == 14 || key == 6)
@@ -34,19 +43,16 @@ int	klavochka(int key, t_matrix *matrix)
 		(key == 84 ? turning_y(matrix) : turning_y_rev(matrix));
 	if (key == 85 || key == 88)
 		(key == 85 ? turning_z(matrix) : turning_z_rev(matrix));
-	printf("help do  = %d\n", matrix->help);
 	if (key == 4)
 	{
-		matrix->help =
+		matrix->help = (matrix->help == 0 ? 1 : 0);
+		magik(matrix);
 	}
-	// if (key == 4 && matrix->help == 0)
-	// 	help(matrix);
-	// printf("help posle  = %d\n", matrix->help);
-	// if (key == 4 && matrix->help == 1)
-	// {
-	// 	printf("aaaaaaa\n");
-	// 	matrix->help = 0;
-	// 	magik(matrix);
-	// }
+}
+
+int				klavochka(int key, t_matrix *matrix)
+{
+	part_one(key, matrix);
+	part_two(key, matrix);
 	return (0);
 }

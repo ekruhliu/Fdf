@@ -16,14 +16,17 @@ void		create_lines(t_matrix *matrix, int i)
 {
 	int		x;
 
-	if ((int)SEC_Y < VISOTA && (int)SEC_X < WIRINA)
+	if ((int)SEC_Y >= 0 && (int)SEC_X >= 0)
 	{
-		x = (int)SEC_Y * matrix->img->size_line + (int)SEC_X * 4;
-		if (x < VISOTA * WIRINA * 4)
+		if ((int)SEC_Y < VISOTA && (int)SEC_X < WIRINA)
 		{
-			matrix->img->line[x] = BLUE;
-			matrix->img->line[x + 1] = GREEN;
-			matrix->img->line[x + 2] = RED;
+			x = (int)SEC_Y * matrix->img->size_line + (int)SEC_X * 4;
+			if (x < VISOTA * WIRINA * 4)
+			{
+				matrix->img->line[x] = BLUE;
+				matrix->img->line[x + 1] = GREEN;
+				matrix->img->line[x + 2] = RED;
+			}
 		}
 	}
 }

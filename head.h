@@ -89,6 +89,7 @@ typedef struct	s_matrix
 	double		chars_x;
 	double		lines_y;
 	int			help;
+	int			animation;
 	t_coord		*coord;
 	t_coord_2	*coord_2;
 	t_img		*img;
@@ -137,5 +138,6 @@ void			usage(void);
 void			too_many_arg(void);
 int				error_format(char *argv);
 void			help(t_matrix *matrix);
+void			animation(t_matrix *matrix);
 
 #endif
