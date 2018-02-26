@@ -17,7 +17,7 @@ void	color_and_coord(t_matrix *matrix, char **coord, double mult)
 	int			i;
 
 	i = 0;
-	matrix->coord = ft_memalloc(sizeof(t_coord) * SIZE_MAP + 1);
+	matrix->coord = ft_memalloc(sizeof(t_coord) * SIZE_MAP);
 	while (i <= SIZE_MAP)
 	{
 		RED = 255;

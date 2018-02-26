@@ -1,37 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_file.c                                        :+:      :+:    :+:   */
+/*   find_center.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekruhliu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/16 01:11:10 by ekruhliu          #+#    #+#             */
-/*   Updated: 2018/02/16 01:11:11 by ekruhliu         ###   ########.fr       */
+/*   Created: 2018/02/26 15:37:19 by ekruhliu          #+#    #+#             */
+/*   Updated: 2018/02/26 15:37:20 by ekruhliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../head.h"
 
-char		*read_file(char *argv)
+void	find_center(t_matrix *matrix)
 {
-	char	*res;
-	char	*tmp;
-	int		read_res;
-	int		fd;
+	int i;
 
-	fd = open(argv, O_RDONLY);
-	res = ft_strdup("\0");
-	while ((read_res = get_next_line(fd, &argv)) > 0)
+	i = 0;
+	while (i < SIZE_MAP)
 	{
-		tmp = ft_strdup(res);
-		free(res);
-		res = ft_strjoin(tmp, " ");
-		free(tmp);
-		tmp = ft_strdup(res);
-		free(res);
-		res = ft_strjoin(tmp, argv);
-		free(argv);
+		X = X - LEN_X / 2;
+		Y = Y - LEN_Y / 2;
+		i++;
 	}
-	close(fd);
-	return (res);
+}
+
+void	back_center(t_matrix *matrix)
+{
+	int i;
+
+	i = 0;
+	while (i < SIZE_MAP)
+	{
+		X = X + LEN_X / 2;
+		Y = Y + LEN_Y / 2;
+		i++;
+	}
 }

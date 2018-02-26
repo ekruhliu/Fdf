@@ -12,7 +12,7 @@
 
 #include "../head.h"
 
-void	count_chars(char *argv, t_matrix *matrix)
+void		count_chars(char *argv, t_matrix *matrix)
 {
 	int		chars;
 	int		check;
@@ -27,9 +27,12 @@ void	count_chars(char *argv, t_matrix *matrix)
 		chars++;
 	while ((check = get_next_line(fd, &argv)) > 0)
 		free(argv);
-	free(tab);
-	free(argv);
 	close(fd);
 	LEN_X = (double)chars;
 	SIZE_MAP = (int)LEN_Y * (int)LEN_X;
+	while (chars)
+	{
+		free(tab[chars]);
+		chars--;
+	}
 }

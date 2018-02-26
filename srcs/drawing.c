@@ -16,10 +16,10 @@ void	draw_lines_x(t_matrix *matrix, int i)
 {
 	if (i % (int)LEN_X != (int)LEN_X - 1)
 	{
-		SEC_X0 = matrix->coord[i].new_x;
-		SEC_X1 = matrix->coord[i + 1].new_x;
-		SEC_Y0 = matrix->coord[i].new_y;
-		SEC_Y1 = matrix->coord[i + 1].new_y;
+		SEC_X0 = matrix->coord[i].new_x + MOVE_X;
+		SEC_X1 = matrix->coord[i + 1].new_x + MOVE_X;
+		SEC_Y0 = matrix->coord[i].new_y + MOVE_Y;
+		SEC_Y1 = matrix->coord[i + 1].new_y + MOVE_Y;
 		line_algh(matrix, i);
 	}
 }
@@ -28,10 +28,10 @@ void	draw_lines_y(t_matrix *matrix, int i)
 {
 	if (i < (SIZE_MAP - (int)LEN_X))
 	{
-		SEC_X0 = matrix->coord[i].new_x;
-		SEC_X1 = matrix->coord[i + (int)LEN_X].new_x;
-		SEC_Y0 = matrix->coord[i].new_y;
-		SEC_Y1 = matrix->coord[i + (int)LEN_X].new_y;
+		SEC_X0 = matrix->coord[i].new_x + MOVE_X;
+		SEC_X1 = matrix->coord[i + (int)LEN_X].new_x + MOVE_X;
+		SEC_Y0 = matrix->coord[i].new_y + MOVE_Y;
+		SEC_Y1 = matrix->coord[i + (int)LEN_X].new_y + MOVE_Y;
 		line_algh(matrix, i);
 	}
 }

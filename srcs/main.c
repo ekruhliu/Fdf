@@ -14,7 +14,15 @@
 
 static void		part_2(t_matrix *matrix, char **coordinate, double mult)
 {
+	int i;
+
+	i = 0;
 	color_and_coord(matrix, coordinate, mult);
+	while (i < SIZE_MAP)
+	{
+		free(coordinate[i]);
+		i++;
+	}
 	open_window(matrix);
 	magik(matrix);
 	mlx_hook(matrix->win, 2, 5, klavochka, matrix);
@@ -27,13 +35,17 @@ static void		part_1(char *argv, t_matrix *matrix)
 	double		mult;
 	char		**coordinate;
 
+	MOVE_X = 0;
+	MOVE_Y = 0;
+	MOVE_Z = 0;
 	mult = 0;
 	matrix->help = 1;
 	matrix->animation = 1;
-	coordinate = make_coordinate(argv);
+	matrix->turning = 1;
 	count_lines(argv, matrix);
 	count_chars(argv, matrix);
-	matrix->coord_2 = ft_memalloc(sizeof(t_coord_2) * SIZE_MAP + 1);
+	coordinate = make_coordinate(argv);
+	matrix->coord_2 = ft_memalloc(sizeof(t_coord_2) * SIZE_MAP);
 	mult = (VISOTA - 450) / ((LEN_X > LEN_Y) ? LEN_X : LEN_Y);
 	part_2(matrix, coordinate, mult);
 }

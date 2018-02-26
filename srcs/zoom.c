@@ -17,6 +17,7 @@ void	zoom_plus(t_matrix *matrix)
 	int i;
 
 	i = 0;
+	find_center(matrix);
 	while (i < SIZE_MAP)
 	{
 		Z = Z * 1.1;
@@ -24,6 +25,7 @@ void	zoom_plus(t_matrix *matrix)
 		Y = Y * 1.1;
 		i++;
 	}
+	back_center(matrix);
 	magik(matrix);
 }
 
@@ -32,6 +34,7 @@ void	zoom_minus(t_matrix *matrix)
 	int i;
 
 	i = 0;
+	find_center(matrix);
 	while (i < SIZE_MAP)
 	{
 		Z = Z * 0.9;
@@ -39,5 +42,6 @@ void	zoom_minus(t_matrix *matrix)
 		Y = Y * 0.9;
 		i++;
 	}
+	back_center(matrix);
 	magik(matrix);
 }

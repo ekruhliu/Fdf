@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   turning_matrix.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ekruhliu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ekruhliu <marvin@45.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/19 14:12:07 by ekruhliu          #+#    #+#             */
-/*   Updated: 2018/02/19 14:12:07 by ekruhliu         ###   ########.fr       */
+/*   Created: 5018/05/19 14:15:07 by ekruhliu          #+#    #+#             */
+/*   Updated: 5018/05/19 14:15:07 by ekruhliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	turning_x(t_matrix *matrix)
 	double	y;
 
 	i = 0;
+	find_center(matrix);
 	while (i < SIZE_MAP)
 	{
 		y = Y;
@@ -25,6 +26,8 @@ void	turning_x(t_matrix *matrix)
 		Z = -y * sin(5 * (3.14 / 180)) + Z * cos(5 * (3.14 / 180));
 		i++;
 	}
+	back_center(matrix);
+	matrix->turning = 0;
 	magik(matrix);
 }
 
@@ -34,6 +37,7 @@ void	turning_y(t_matrix *matrix)
 	double	x;
 
 	i = 0;
+	find_center(matrix);
 	while (i < SIZE_MAP)
 	{
 		x = X;
@@ -41,6 +45,8 @@ void	turning_y(t_matrix *matrix)
 		Z = -x * sin(5 * (3.14 / 180)) + Z * cos(5 * (3.14 / 180));
 		i++;
 	}
+	back_center(matrix);
+	matrix->turning = 0;
 	magik(matrix);
 }
 
@@ -51,6 +57,7 @@ void	turning_z(t_matrix *matrix)
 	double	y;
 
 	i = 0;
+	find_center(matrix);
 	while (i < SIZE_MAP)
 	{
 		x = X;
@@ -59,5 +66,7 @@ void	turning_z(t_matrix *matrix)
 		Y = x * sin(5 * (3.14 / 180)) + y * cos(5 * (3.14 / 180));
 		i++;
 	}
+	back_center(matrix);
+	matrix->turning = 0;
 	magik(matrix);
 }

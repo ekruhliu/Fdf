@@ -5,7 +5,7 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekruhliu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/21 17:47:05 by ekruhliu          #+#    #+#             */
+/*   Created: 2018/02/21 17:47:02 by ekruhliu          #+#    #+#             */
 /*   Updated: 2018/02/21 17:47:06 by ekruhliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -18,6 +18,7 @@ void	turning_x_rev(t_matrix *matrix)
 	double	y;
 
 	i = 0;
+	find_center(matrix);
 	while (i < SIZE_MAP)
 	{
 		y = Y;
@@ -25,6 +26,8 @@ void	turning_x_rev(t_matrix *matrix)
 		Z = y * sin(5 * (3.14 / 180)) + Z * cos(5 * (3.14 / 180));
 		i++;
 	}
+	back_center(matrix);
+	matrix->turning = 0;
 	magik(matrix);
 }
 
@@ -34,6 +37,7 @@ void	turning_y_rev(t_matrix *matrix)
 	double	x;
 
 	i = 0;
+	find_center(matrix);
 	while (i < SIZE_MAP)
 	{
 		x = X;
@@ -41,6 +45,8 @@ void	turning_y_rev(t_matrix *matrix)
 		Z = x * sin(5 * (3.14 / 180)) + Z * cos(5 * (3.14 / 180));
 		i++;
 	}
+	back_center(matrix);
+	matrix->turning = 0;
 	magik(matrix);
 }
 
@@ -51,6 +57,7 @@ void	turning_z_rev(t_matrix *matrix)
 	double	y;
 
 	i = 0;
+	find_center(matrix);
 	while (i < SIZE_MAP)
 	{
 		x = X;
@@ -59,5 +66,7 @@ void	turning_z_rev(t_matrix *matrix)
 		Y = -x * sin(5 * (3.14 / 180)) + y * cos(5 * (3.14 / 180));
 		i++;
 	}
+	back_center(matrix);
+	matrix->turning = 0;
 	magik(matrix);
 }

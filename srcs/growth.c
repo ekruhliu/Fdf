@@ -20,7 +20,7 @@ void	growth_up(t_matrix *matrix)
 	while (i < SIZE_MAP)
 	{
 		Z = Z * 1.1;
-		projection(matrix, i);
+		new_coord(matrix, i);
 		i++;
 	}
 	magik(matrix);
@@ -34,7 +34,7 @@ void	growth_down(t_matrix *matrix)
 	while (i < SIZE_MAP)
 	{
 		Z = Z * 0.9;
-		projection(matrix, i);
+		new_coord(matrix, i);
 		i++;
 	}
 	magik(matrix);

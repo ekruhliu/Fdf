@@ -12,11 +12,26 @@
 
 #include "../head.h"
 
-void	animation(t_matrix *matrix)
+int	animation(t_matrix *matrix)
 {
+	int		i;
+	double	x;
+	double	y;
+
+	i = 0;
 	if (matrix->animation == 0)
 	{
-		while (matrix->animation == 0)
-			turning_z(matrix);
+		find_center(matrix);
+		while (i < SIZE_MAP)
+		{
+			x = X;
+			y = Y;
+			X = X * cos(1 * (3.14 / 180)) - Y * sin(1 * (3.14 / 180));
+			Y = x * sin(1 * (3.14 / 180)) + y * cos(1 * (3.14 / 180));
+			i++;
+		}
+		back_center(matrix);
+		magik(matrix);
 	}
+	return (0);
 }

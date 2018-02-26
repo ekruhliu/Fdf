@@ -14,52 +14,28 @@
 
 void	upper_left_corner(t_matrix *matrix)
 {
-	int i;
-
-	i = 0;
-	while (i < SIZE_MAP)
-	{
-		X = X - 10;
-		i++;
-	}
+	MOVE_X -= 10;
+	MOVE_Y -= 10;
 	magik(matrix);
 }
 
 void	upper_right_corner(t_matrix *matrix)
 {
-	int i;
-
-	i = 0;
-	while (i < SIZE_MAP)
-	{
-		Y = Y - 10;
-		i++;
-	}
+	MOVE_X += 10;
+	MOVE_Y -= 10;
 	magik(matrix);
 }
 
 void	lower_left_corner(t_matrix *matrix)
 {
-	int i;
-
-	i = 0;
-	while (i < SIZE_MAP)
-	{
-		X = X + 10;
-		i++;
-	}
+	MOVE_X += 10;
+	MOVE_Y += 10;
 	magik(matrix);
 }
 
 void	lower_right_corner(t_matrix *matrix)
 {
-	int i;
-
-	i = 0;
-	while (i < SIZE_MAP)
-	{
-		Y = Y + 10;
-		i++;
-	}
+	MOVE_X -= 10;
+	MOVE_Y += 10;
 	magik(matrix);
 }

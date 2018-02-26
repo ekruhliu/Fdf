@@ -18,12 +18,12 @@ static void		part_one(int key, t_matrix *matrix)
 		exit(1);
 	if (key == 69 || key == 78)
 		(key == 69 ? zoom_plus(matrix) : zoom_minus(matrix));
-	if (key == 116 || key == 121)
+	if ((key == 116 || key == 121) && matrix->turning == 1)
 		(key == 116 ? growth_up(matrix) : growth_down(matrix));
 	if ((key == 126 || key == 13) || (key == 125 || key == 7))
-		(key == 126 || key == 13 ? up(matrix) : down(matrix));
+		(key == 126 || key == 13) ? up(matrix) : down(matrix);
 	if ((key == 123 || key == 0) || (key == 124 || key == 2))
-		(key == 123 || key == 0 ? left(matrix) : right(matrix));
+		(key == 123 || key == 0) ? left(matrix) : right(matrix);
 	if (key == 1)
 	{
 		matrix->animation = (matrix->animation == 0 ? 1 : 0);

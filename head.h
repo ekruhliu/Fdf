@@ -49,6 +49,9 @@
 # define TURN_X "Turn X on oneself: 1 |***| Turn X from oneself: 4"
 # define TURN_Y "Turn Y on oneself: 2 |***| Turn Y from oneself: 5"
 # define TURN_Z "Turn Z on oneself: 3 |***| Turn Z from oneself: 6"
+# define MOVE_X matrix->move_x
+# define MOVE_Y matrix->move_y
+# define MOVE_Z matrix->move_z
 
 typedef struct	s_coord
 {
@@ -90,6 +93,10 @@ typedef struct	s_matrix
 	double		lines_y;
 	int			help;
 	int			animation;
+	int			move_x;
+	int			move_y;
+	int			move_z;
+	int			turning;
 	t_coord		*coord;
 	t_coord_2	*coord_2;
 	t_img		*img;
@@ -104,7 +111,7 @@ void			color_and_coord(t_matrix *matrix, char **coord, double mult);
 void			open_window(t_matrix *matrix);
 double			ft_corner_cos(double x, double y);
 double			ft_beta(double x, double y);
-void			projection(t_matrix *matrix, int i);
+void			new_coord(t_matrix *matrix, int i);
 void			create_lines(t_matrix *matrix, int i);
 void			line_algh(t_matrix *matrix, int i);
 void			draw_lines_x(t_matrix *matrix, int i);
@@ -138,6 +145,8 @@ void			usage(void);
 void			too_many_arg(void);
 int				error_format(char *argv);
 void			help(t_matrix *matrix);
-void			animation(t_matrix *matrix);
+int				animation(t_matrix *matrix);
+void			find_center(t_matrix *matrix);
+void			back_center(t_matrix *matrix);
 
 #endif
