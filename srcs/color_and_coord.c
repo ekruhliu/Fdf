@@ -12,7 +12,7 @@
 
 #include "../head.h"
 
-void	color_and_coord(t_matrix *matrix, char **coord, double mult)
+void	color_and_coord(t_matrix *matrix, double mult)
 {
 	int			i;
 
@@ -25,5 +25,5 @@ void	color_and_coord(t_matrix *matrix, char **coord, double mult)
 		BLUE = 255;
 		i++;
 	}
-	find_coord(matrix, coord, mult);
+	find_coord(matrix, mult);
 }

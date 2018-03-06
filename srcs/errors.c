@@ -43,3 +43,9 @@ int		error_format(char *argv)
 		return (1);
 	}
 }
+
+void	error_file(void)
+{
+	ft_putstr("ERROR: Invalid file!\n");
+	exit(1);
+}

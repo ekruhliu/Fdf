@@ -15,7 +15,7 @@
 static void		part_one(int key, t_matrix *matrix)
 {
 	if (key == 53)
-		exit(1);
+		exit_x();
 	if (key == 69 || key == 78)
 		(key == 69 ? zoom_plus(matrix) : zoom_minus(matrix));
 	if ((key == 116 || key == 121) && matrix->turning == 1)

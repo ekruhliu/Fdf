@@ -38,14 +38,14 @@ $(NAME):
 		@ make -C libft/
 		@ gcc $(FLAGS) $(HEADER) $(SRCS)
 		@ gcc -o $(NAME) $(OBJ) libft/libft.a $(MLX)
-		@afplay 1.mp3
+		@ afplay 1.mp3
 
 clean:
-		@ /bin/rm -f $(OBJ)
+		@ /bin/rm -f $(OBJ) ./head.h.gch
 		@ make -C libft/ clean
 
 fclean: clean
-		@ /bin/rm -f $(NAME) ./head.h.gch
+		@ /bin/rm -f $(NAME)
 		@ make -C libft/ fclean
 
 re: fclean all

@@ -12,7 +12,7 @@
 
 #include "../head.h"
 
-void	find_coord(t_matrix *matrix, char **coordinate, double mult)
+void	find_coord(t_matrix *matrix, double mult)
 {
 	int		i;
 	int		j;
@@ -22,20 +22,20 @@ void	find_coord(t_matrix *matrix, char **coordinate, double mult)
 	i = 0;
 	x = 0;
 	y = 0;
-	while (coordinate[i] && i < SIZE_MAP)
+	while (matrix->coordinate[i] && i < SIZE_MAP)
 	{
 		if (x == LEN_X)
 			y++;
 		if (x == LEN_X)
 			x = 0;
 		j = 0;
-		Z = ((double)ft_atoi(&coordinate[i][j])) * (mult / 2);
+		Z = ((double)ft_atoi(&matrix->coordinate[i][j])) * (mult / 2);
 		Y = (y - LEN_Y / 2) * mult;
 		X = (x - LEN_X / 2) * mult;
-		while ((ft_isdigit(coordinate[i][j])) == 1)
+		while ((ft_isdigit(matrix->coordinate[i][j])) == 1)
 			j++;
-		if (coordinate[i][j] == ',')
-			find_and_save_color(i, matrix, &coordinate[i][++j]);
+		if (matrix->coordinate[i][j] == ',')
+			find_and_save_color(i, matrix, &matrix->coordinate[i][++j]);
 		i++;
 		x++;
 	}

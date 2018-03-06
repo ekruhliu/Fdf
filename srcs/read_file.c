@@ -30,8 +30,10 @@ char		*read_file(char *argv)
 		tmp = ft_strdup(res);
 		free(res);
 		res = ft_strjoin(tmp, argv);
+		free(tmp);
 		free(argv);
 	}
+	free(argv);
 	close(fd);
 	return (res);
 }

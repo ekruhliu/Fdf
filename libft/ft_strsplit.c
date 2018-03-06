@@ -28,7 +28,7 @@ static char		**ft_super_array(char const *s, char c)
 			words++;
 		i++;
 	}
-	super_array = (char **)malloc(sizeof(char*) * words + 1);
+	super_array = (char **)malloc(sizeof(char*) * words);
 	if (super_array == NULL)
 		return (NULL);
 	return (super_array);
@@ -84,11 +84,10 @@ char			**ft_strsplit(char const *s, char c)
 		pack.size = pack.i - pack.start;
 		if (pack.words-- != 0)
 		{
-			s_a[pack.s_a_p] = (char*)malloc(sizeof(char) * pack.size + 1);
 			s_a[pack.s_a_p] = ft_strsub(s, pack.start, pack.size);
 			(s_a[pack.s_a_p] != 0 ? pack.s_a_p += 1 : 0);
 		}
 	}
-	s_a[pack.s_a_p] = (char*)'\0';
+	s_a[pack.s_a_p] = 0;
 	return (s_a);
 }

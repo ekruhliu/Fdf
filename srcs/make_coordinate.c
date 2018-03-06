@@ -21,8 +21,6 @@ char	**make_coordinate(char *argv)
 	i = 0;
 	line = read_file(argv);
 	coordinate = ft_strsplit(line, ' ');
-	while (coordinate[i])
-		i++;
 	free(line);
 	return (coordinate);
 }

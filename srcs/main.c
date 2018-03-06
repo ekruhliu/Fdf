@@ -12,17 +12,12 @@
 
 #include "../head.h"
 
-static void		part_2(t_matrix *matrix, char **coordinate, double mult)
+static void		part_2(t_matrix *matrix, double mult)
 {
 	int i;
 
 	i = 0;
-	color_and_coord(matrix, coordinate, mult);
-	while (i < SIZE_MAP)
-	{
-		free(coordinate[i]);
-		i++;
-	}
+	color_and_coord(matrix, mult);
 	open_window(matrix);
 	magik(matrix);
 	mlx_hook(matrix->win, 2, 5, klavochka, matrix);
@@ -33,7 +28,6 @@ static void		part_2(t_matrix *matrix, char **coordinate, double mult)
 static void		part_1(char *argv, t_matrix *matrix)
 {
 	double		mult;
-	char		**coordinate;
 
 	MOVE_X = 0;
 	MOVE_Y = 0;
@@ -42,12 +36,12 @@ static void		part_1(char *argv, t_matrix *matrix)
 	matrix->help = 1;
 	matrix->animation = 1;
 	matrix->turning = 1;
+	matrix->rubish = count_chars(argv, matrix);
 	count_lines(argv, matrix);
-	count_chars(argv, matrix);
-	coordinate = make_coordinate(argv);
+	matrix->coordinate = make_coordinate(argv);
 	matrix->coord_2 = ft_memalloc(sizeof(t_coord_2) * SIZE_MAP);
-	mult = (VISOTA - 450) / ((LEN_X > LEN_Y) ? LEN_X : LEN_Y);
-	part_2(matrix, coordinate, mult);
+	mult = (VISOTA - 600) / ((LEN_X > LEN_Y) ? LEN_X : LEN_Y);
+	part_2(matrix, mult);
 }
 
 static void		part_3(t_matrix *matrix)
@@ -55,6 +49,8 @@ static void		part_3(t_matrix *matrix)
 	free(matrix->coord);
 	free(matrix->coord_2);
 	free(matrix->img);
+	free(matrix->coordinate);
+	free(matrix->rubish);
 	free(matrix);
 }
 

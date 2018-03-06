@@ -97,6 +97,8 @@ typedef struct	s_matrix
 	int			move_y;
 	int			move_z;
 	int			turning;
+	char		**rubish;
+	char		**coordinate;
 	t_coord		*coord;
 	t_coord_2	*coord_2;
 	t_img		*img;
@@ -105,9 +107,9 @@ typedef struct	s_matrix
 int				exit_x(void);
 void			create_image(t_matrix *matrix);
 void			count_lines(char *argv, t_matrix	*matrix);
-void			count_chars(char *argv, t_matrix	*matrix);
-void			find_coord(t_matrix	*matrix, char **coordinate, double mult);
-void			color_and_coord(t_matrix *matrix, char **coord, double mult);
+char			**count_chars(char *argv, t_matrix	*matrix);
+void			find_coord(t_matrix	*matrix, double mult);
+void			color_and_coord(t_matrix *matrix, double mult);
 void			open_window(t_matrix *matrix);
 double			ft_corner_cos(double x, double y);
 double			ft_beta(double x, double y);
@@ -148,5 +150,6 @@ void			help(t_matrix *matrix);
 int				animation(t_matrix *matrix);
 void			find_center(t_matrix *matrix);
 void			back_center(t_matrix *matrix);
+void			error_file(void);
 
 #endif

@@ -28,4 +28,5 @@ void	count_lines(char *argv, t_matrix *matrix)
 	free(argv);
 	close(fd);
 	LEN_Y = (double)lines;
+	SIZE_MAP = (int)LEN_Y * (int)LEN_X;
 }
